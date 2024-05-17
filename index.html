@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #answer {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #007BFF;
+        }
+        #thanks {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #007BFF;
+            border-right: 2px solid;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 25ch;
+            animation: typing 10s steps(35), blink-caret .5s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 25ch }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #007BFF; }
+        }
+        #image {
+            display: none;
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kamu masih sayang mantan kan?</h1>
+    <div class="button-container">
+        <button onclick="answer('Ya')">Ya</button>
+        <button onclick="answer('Tidak')">Tidak</button>
+    </div>
+    <p id="answer"></p>
+    <p id="thanks"></p>
+    <button id="showImage" onclick="showImage()" style="display: none;">click suprise !</button>
+    <img id="image" src="https://github.com/hikmalalfatih/handsome/blob/main/a8c8c238-c19c-42c2-9251-ba07ef1f53d6.JPG?raw=true" alt="Gambar" style="display: none;">
+    <script>
+        function answer(choice) {
+            var text;
+            if (choice == 'Ya') {
+                text = "emang kamu tuhh masih sayang sama dia";
+                document.getElementById('answer').innerHTML = text;
+                document.getElementById('thanks').innerHTML = "tq yaaa, semoga bahagia....... ";
+                document.getElementById('showImage').style.display = "block";
+            } else {
+                text = "Halahh bohongg... pilih yang bener!";
+                document.getElementById('answer').innerHTML = text;
+                document.getElementById('thanks').innerHTML = "";
+                document.getElementById('showImage').style.display = "none";
+                document.getElementById('image').style.display = "none";
+            }
+        }
+        function showImage() {
+            document.getElementById('image').style.display = "block";
+        }
+    </script>
+</body>
+</html>
